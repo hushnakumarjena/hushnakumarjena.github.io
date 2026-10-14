@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Neurocausal — exploring physics, intelligence, and complex systems.">
+  <title>Neurocausal | A Scientific Atlas</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #10151c;
+      color: #e8edf3;
+      font-family: Georgia, serif;
+      line-height: 1.7;
+    }
+
+    header, main, footer {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #303944;
+    }
+
+    .logo { font-size: 1.3rem; font-weight: bold; }
+
+    nav a {
+      color: #b8c7d9;
+      text-decoration: none;
+      margin-left: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .hero { padding: 90px 0 65px; }
+
+    .eyebrow {
+      color: #83b8d7;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font: 0.75rem Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 5.5rem);
+      line-height: 1.1;
+      margin: 20px 0;
+    }
+
+    .intro { max-width: 620px; color: #b8c2ce; font-size: 1.15rem; }
+
+    h2 { font-size: 1.5rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid #303944;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .card p { color: #aebac7; font-size: 0.95rem; }
+
+    footer {
+      margin-top: 70px;
+      border-top: 1px solid #303944;
+      color: #9aa7b5;
+      font: 0.85rem Arial, sans-serif;
+    }
+
+    a:focus-visible { outline: 2px solid #83b8d7; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Neurocausal.</div>
+    <nav>
+      <a href="#interests">Interests</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">A personal scientific atlas</p>
+      <h1>Understanding<br>complexity.</h1>
+      <p class="intro">
+        A space for exploring the principles underlying physical
+        systems, intelligence, and emergence — through mathematics,
+        scientific writing, and interactive simulations.
+      </p>
+    </section>
+
+    <section id="interests">
+      <h2>Areas of exploration</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Physics</h3>
+          <p>Quantum mechanics, statistical physics, and emergent phenomena.</p>
+        </article>
+        <article class="card">
+          <h3>Neuroscience & ML</h3>
+          <p>Neural dynamics, learning, and theories of intelligence.</p>
+        </article>
+        <article class="card">
+          <h3>Mathematics</h3>
+          <p>Probability, dynamical systems, and mathematical structures.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" style="padding-top: 35px">
+      <h2>Projects & writing</h2>
+      <p class="intro">
+        Simulations, derivations, research notes, and ideas in progress.
+        More coming soon.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Neurocausal · A work in progress.
+  </footer>
+</body>
+</html>
