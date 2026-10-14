@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Personal academic website: physics, mathematics, learning theory, and neuroscience.">
+<title>Mathematical &amp; Theoretical Physics | Hushna Kumar Jena</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+</head><body><header class="site-header">
+<div class="nav-wrap">
+<a class="brand" href="../index.html">Hushna Kumar Jena</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
+<div class="nav-inner" id="site-nav"><nav aria-label="Main navigation"><a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+<a href="../research.html" aria-current="page">Research</a>
+<a href="../maths.html">Maths</a>
+<a href="../writing.html">Writing</a>
+<a href="../lab/index.html">Lab</a>
+<a href="../resources.html">Resources</a></nav></div>
+</div></header><main class=""><section class="page-intro"><div class="eyebrow">Research theme</div><h1>Mathematical & Theoretical Physics</h1><p class="lead">Quantum mechanics, linear operators, symmetry, and mathematical frameworks for physical theories.</p></section>
+<img class="card-image" style="border-radius:14px;aspect-ratio:16/5;margin-bottom:30px" src="../images/physics.svg" alt="Abstract illustration for Mathematical &amp; Theoretical Physics">
+<section class="section"><h2>Notes &amp; explorations</h2><ul class="listing"><li><h3><a href="../notes/simultaneous-diagonalization.html">Simultaneous diagonalization & angular momentum</a></h3><p>Commuting observables, eigenspaces, and a quantum-mechanical application.</p></li><li><h3><a href="#">Symmetry and group theory</a></h3><p>Groups, representations, and how symmetry constrains physical systems.</p></li><li><h3><a href="#">Quantum theory notes</a></h3><p>Operators, states, measurement, and time evolution.</p></li></ul></section>
+<div class="note">This page is an index. Add a new article in <code>notes/</code>, then add a link to it here.</div></main><footer>Built as a personal collection of notes, ideas, and experiments. <a href="../about.html">About</a></footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-inner');
+if (toggle && nav) toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script></body></html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Personal academic website: physics, mathematics, learning theory, and neuroscience.">
+<title>Commuting operators and simultaneous diagonalization | Hushna Kumar Jena</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+</head><body><header class="site-header">
+<div class="nav-wrap">
+<a class="brand" href="../index.html">Hushna Kumar Jena</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
+<div class="nav-inner" id="site-nav"><nav aria-label="Main navigation"><a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+<a href="../research.html">Research</a>
+<a href="../maths.html">Maths</a>
+<a href="../writing.html">Writing</a>
+<a href="../lab/index.html">Lab</a>
+<a href="../resources.html">Resources</a></nav></div>
+</div></header><main class=""><article class="article"><div class="eyebrow">Mathematics · Quantum mechanics</div><h1>Commuting operators and simultaneous diagonalization</h1><p class="small">Working note · Edit and expand as your understanding develops</p>
+<p>Two operators that commute can often be diagonalized in a common basis when the operators are suitably well behaved—for example, finite-dimensional Hermitian operators. This is one reason commutation matters in quantum mechanics.</p>
+<h2>The linear-algebra idea</h2>
+<p>Suppose two Hermitian operators \(A\) and \(B\) satisfy \(AB=BA\). Each eigenspace of \(A\) is invariant under \(B\): if \(A|v\rangle=a|v\rangle\), then \(A(B|v\rangle)=B(A|v\rangle)=aB|v\rangle\). So \(B|v\rangle\) remains in the same eigenspace of \(A\).</p>
+<p>If an eigenspace of \(A\) is degenerate, we can choose a basis inside that eigenspace that also diagonalizes \(B\). Degeneracy is useful here, but it is not required for simultaneous diagonalization of commuting Hermitian operators.</p>
+<h2>Connection to angular momentum</h2>
+<p>For angular momentum, \(J^2\) commutes with \(J_z\): \([J^2,J_z]=0\). We can therefore choose common eigenstates \(|j,m\rangle\), with \(J^2|j,m\rangle=\hbar^2j(j+1)|j,m\rangle\) and \(J_z|j,m\rangle=\hbar m|j,m\rangle\).</p>
+<p>For a given angular-momentum representation labelled by \(j\), the allowed \(m\) values run from \(-j\) to \(j\) in unit steps, giving \(2j+1\) states in the multiplet. This count follows from angular-momentum representation theory, not from \(J^2\) alone in every arbitrary physical system.</p>
+<div class="note">This is a concise starter note. Expand it with a worked finite-dimensional matrix example and references as you study the topic.</div>
+<p><a href="../maths.html">← Back to Maths</a> · <a href="../writing.html">Writing index</a></p></article></main><footer>Built as a personal collection of notes, ideas, and experiments. <a href="../about.html">About</a></footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-inner');
+if (toggle && nav) toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script></body></html>

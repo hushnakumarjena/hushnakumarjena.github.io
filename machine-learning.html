@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Personal academic website: physics, mathematics, learning theory, and neuroscience.">
+<title>Machine Learning &amp; Learning Theory | Hushna Kumar Jena</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+</head><body><header class="site-header">
+<div class="nav-wrap">
+<a class="brand" href="../index.html">Hushna Kumar Jena</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
+<div class="nav-inner" id="site-nav"><nav aria-label="Main navigation"><a href="../index.html">Home</a>
+<a href="../about.html">About</a>
+<a href="../research.html" aria-current="page">Research</a>
+<a href="../maths.html">Maths</a>
+<a href="../writing.html">Writing</a>
+<a href="../lab/index.html">Lab</a>
+<a href="../resources.html">Resources</a></nav></div>
+</div></header><main class=""><section class="page-intro"><div class="eyebrow">Research theme</div><h1>Machine Learning & Learning Theory</h1><p class="lead">Probabilistic models, optimisation, sequence learning, and learning algorithms.</p></section>
+<img class="card-image" style="border-radius:14px;aspect-ratio:16/5;margin-bottom:30px" src="../images/ml.svg" alt="Abstract illustration for Machine Learning &amp; Learning Theory">
+<section class="section"><h2>Notes &amp; explorations</h2><ul class="listing"><li><h3><a href="../notes/stochastic-processes.html">Probability foundations</a></h3><p>Random variables and conditional structure behind probabilistic models.</p></li><li><h3><a href="../notes/dynamical-systems.html">Optimization and dynamics</a></h3><p>A bridge between iterative algorithms and dynamical systems.</p></li><li><h3><a href="#">Learning theory notes</a></h3><p>Generalization, model assumptions, and the limits of learning.</p></li></ul></section>
+<div class="note">This page is an index. Add a new article in <code>notes/</code>, then add a link to it here.</div></main><footer>Built as a personal collection of notes, ideas, and experiments. <a href="../about.html">About</a></footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-inner');
+if (toggle && nav) toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script></body></html>
