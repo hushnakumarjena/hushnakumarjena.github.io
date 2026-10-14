@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Personal academic website: physics, mathematics, learning theory, and neuroscience.">
+<title>Home | Your Name</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head><body><header class="site-header">
+<div class="nav-wrap">
+<a class="brand" href="index.html">YOUR <span>NAME</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
+<div class="nav-inner" id="site-nav"><nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a>
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a href="maths.html">Maths</a>
+<a href="writing.html">Writing</a>
+<a href="lab/index.html">Lab</a>
+<a href="resources.html">Resources</a></nav></div>
+</div></header><main class="">
+<section class="hero"><div class="hero-copy">
+<div class="eyebrow">Personal academic website</div>
+<h1>Ideas, models, and connections.</h1>
+<p class="lead">I'm exploring physics, mathematics, learning, and neuroscience through notes, theoretical questions, and computational experiments.</p>
+<div class="pill-row"><span class="pill">Physics</span><span class="pill">Mathematics</span><span class="pill">Learning</span><span class="pill">Neuroscience</span></div>
+</div></section>
+<section class="section">
+<div class="section-head"><div><h2>Research themes</h2><p>Four overlapping directions I'm interested in.</p></div><a href="research.html">All themes →</a></div>
+<div class="grid">
+<a class="card" href="themes/physics.html"><img class="card-image" src="images/physics.svg" alt="Wave patterns representing mathematical physics"><div class="card-body"><div class="eyebrow">01 / Physics</div><h3>Mathematical &amp; Theoretical Physics</h3><p>Quantum mechanics, operators, symmetry, and mathematical structures in physical theories.</p><span class="card-link">Explore theme →</span></div></a>
+<a class="card" href="themes/statistical-physics.html"><img class="card-image" src="images/statistical.svg" alt="Connected particles representing collective behaviour"><div class="card-body"><div class="eyebrow">02 / Complexity</div><h3>Statistical Physics &amp; Emergence</h3><p>Probability, stochastic processes, non-equilibrium systems, and collective behaviour.</p><span class="card-link">Explore theme →</span></div></a>
+<a class="card" href="themes/machine-learning.html"><img class="card-image" src="images/ml.svg" alt="Layered network representing machine learning"><div class="card-body"><div class="eyebrow">03 / Learning</div><h3>Machine Learning &amp; Learning Theory</h3><p>Probabilistic models, optimization, sequence learning, and reinforcement learning.</p><span class="card-link">Explore theme →</span></div></a>
+<a class="card" href="themes/neuroscience.html"><img class="card-image" src="images/neuron.svg" alt="Illustration of a neuron and its branches"><div class="card-body"><div class="eyebrow">04 / Neural systems</div><h3>Neurophysiology &amp; Computation</h3><p>Membrane dynamics, neuron models, neural circuits, and biological computation.</p><span class="card-link">Explore theme →</span></div></a>
+</div></section>
+<section class="section"><div class="section-head"><div><h2>Elsewhere on the site</h2><p>Notes, writing, and small experiments as they develop.</p></div></div>
+<div class="grid three">
+<a class="card" href="maths.html"><img class="card-image" src="images/maths.svg" alt="Mathematical curves and symbols"><div class="card-body"><h3>Maths</h3><p>Mathematical foundations shared across the themes.</p><span class="card-link">Browse maths →</span></div></a>
+<a class="card" href="writing.html"><img class="card-image" src="images/writing.svg" alt="Notebook page illustration"><div class="card-body"><h3>Writing</h3><p>Longer explanations, essays, and developing ideas.</p><span class="card-link">Read writing →</span></div></a>
+<a class="card" href="lab/index.html"><img class="card-image" src="images/lab.svg" alt="Waveform on a plotting grid"><div class="card-body"><h3>Lab</h3><p>Interactive models and computational experiments.</p><span class="card-link">Open lab →</span></div></a>
+</div></section>
+</main><footer>Built as a personal collection of notes, ideas, and experiments. <a href="about.html">About</a></footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-inner');
+if (toggle && nav) toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script></body></html>
