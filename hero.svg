@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620">
+<defs><radialGradient id="g"><stop stop-color="#1e5279" stop-opacity=".6"/><stop offset="1" stop-color="#07101d" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="620" fill="#081426"/><circle cx="880" cy="180" r="450" fill="url(#g)"/>
+<g fill="none" stroke="#7ebde4" stroke-opacity=".4" stroke-width="1.4">
+<path d="M610 80 Q790 280 1010 130 T1190 300"/><path d="M600 180 Q760 370 950 230 T1190 400"/>
+<path d="M650 400 C760 160 920 550 1110 310"/><path d="M700 520 C840 300 970 610 1160 430"/>
+<circle cx="850" cy="190" r="80"/><circle cx="850" cy="190" r="145"/><circle cx="850" cy="190" r="210"/>
+</g>
+<g fill="#c4e8ff"><circle cx="850" cy="190" r="4"/><circle cx="930" cy="190" r="3"/><circle cx="780" cy="95" r="3"/><circle cx="970" cy="280" r="3"/><circle cx="715" cy="340" r="3"/><circle cx="1080" cy="145" r="3"/></g>
+<g stroke="#c4e8ff" stroke-opacity=".4"><path d="M850 190L930 190L970 280L850 190L780 95L715 340L850 190"/><path d="M930 190L1080 145"/></g>
+</svg>
