@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Personal academic website: physics, mathematics, learning theory, and neuroscience.">
+<title>Research | Hushna Kumar Jena</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head><body><header class="site-header">
+<div class="nav-wrap">
+<a class="brand" href="index.html">Hushna Kumar Jena</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
+<div class="nav-inner" id="site-nav"><nav aria-label="Main navigation"><a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="research.html" aria-current="page">Research</a>
+<a href="maths.html">Maths</a>
+<a href="writing.html">Writing</a>
+<a href="lab/index.html">Lab</a>
+<a href="resources.html">Resources</a></nav></div>
+</div></header><main class="">
+<section class="page-intro"><div class="eyebrow">Research interests</div><h1>Research</h1>
+<p class="lead">Four connected directions, from mathematical descriptions of physical systems to learning and neuronal computation.</p></section>
+<div class="grid">
+<a class="card" href="themes/physics.html"><img class="card-image" src="images/physics.svg" alt=""><div class="card-body"><h3>Mathematical &amp; Theoretical Physics</h3><p>Quantum mechanics, operators, symmetry, and mathematical methods.</p><span class="card-link">Open theme →</span></div></a>
+<a class="card" href="themes/statistical-physics.html"><img class="card-image" src="images/statistical.svg" alt=""><div class="card-body"><h3>Statistical Physics &amp; Emergence</h3><p>Stochastic systems, collective behaviour, and universality.</p><span class="card-link">Open theme →</span></div></a>
+<a class="card" href="themes/machine-learning.html"><img class="card-image" src="images/ml.svg" alt=""><div class="card-body"><h3>Machine Learning &amp; Learning Theory</h3><p>Probabilistic models, optimization, sequence learning, and RL.</p><span class="card-link">Open theme →</span></div></a>
+<a class="card" href="themes/neuroscience.html"><img class="card-image" src="images/neuron.svg" alt=""><div class="card-body"><h3>Neurophysiology &amp; Computation</h3><p>Neuronal dynamics, circuits, synchronization, and computation.</p><span class="card-link">Open theme →</span></div></a>
+</div>
+</main><footer>Built as a personal collection of notes, ideas, and experiments. <a href="about.html">About</a></footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav-inner');
+if (toggle && nav) toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script></body></html>
