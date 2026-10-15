@@ -1,81 +1,287 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Personal academic website: physics, mathematics, learning theory, and neuroscience.">
-<title>Lab | Hushna Kumar Jena</title>
-<link rel="stylesheet" href="../style.css">
-<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
-</head><body><header class="site-header">
-<div class="nav-wrap">
-<a class="brand" href="../index.html">Hushna Kumar Jena</a>
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
-<div class="nav-inner" id="site-nav"><nav aria-label="Main navigation"><a href="../index.html">Home</a>
-<a href="../about.html">About</a>
-<a href="../research.html">Research</a>
-<a href="../maths.html">Maths</a>
-<a href="../writing.html">Writing</a>
-<a href="../lab/index.html" aria-current="page">Lab</a>
-<a href="../resources.html">Resources</a></nav></div>
-</div></header><main class="">
-<section class="page-intro"><div class="eyebrow">Computational experiments</div><h1>Lab</h1>
-<p class="lead">A small interactive leaky integrate-and-fire neuron model. Adjust the input current and time constant to see how the membrane potential changes.</p></section>
-<section class="card"><div class="card-body">
-<h2>Leaky integrate-and-fire neuron</h2>
-<p>Between spikes, the membrane potential follows a leaky equation. When it reaches threshold, the model records a spike and resets the voltage.</p>
-<div class="sim-controls">
-<label>Input current: <strong><span id="current-value">1.5</span></strong><input id="current" type="range" min="0" max="3" step="0.1" value="1.5"></label>
-<label>Time constant τ (ms): <strong><span id="tau-value">20</span></strong><input id="tau" type="range" min="5" max="40" step="1" value="20"></label>
-<label>Threshold (mV): <strong><span id="threshold-value">-50</span></strong><input id="threshold" type="range" min="-65" max="-40" step="1" value="-50"></label>
-</div>
-<canvas id="plot" width="1000" height="340" role="img" aria-label="Plot of model membrane potential over time"></canvas>
-<p id="readout" aria-live="polite" style="margin-top:14px">Calculating model output…</p>
-<p class="small">Illustrative model, not a physiological fit. Parameters are dimensionless or simplified for demonstration.</p>
-</div></section>
-<section class="section"><h2>Model idea</h2>
-<p>A common simplified equation is \\(\\tau_m \\frac{dV}{dt}=-(V-E_L)+RI\\). Here the voltage relaxes toward a current-dependent steady level. Threshold crossing produces a spike event, after which voltage is reset.</p>
-</section>
-<script>
-(() => {
- const current = document.getElementById('current'), tau = document.getElementById('tau'), threshold = document.getElementById('threshold');
- const cv = document.getElementById('current-value'), tv = document.getElementById('tau-value'), hv = document.getElementById('threshold-value');
- const canvas = document.getElementById('plot'), ctx = canvas.getContext('2d'), readout = document.getElementById('readout');
- function simulate() {
-   cv.textContent = current.value; tv.textContent = tau.value; hv.textContent = threshold.value;
-   const dt = 0.5, duration = 200, steps = duration/dt, leak = -70, reset = -68;
-   let v = leak, spikes = 0, values = [];
-   for (let i=0;i<=steps;i++) {
-     values.push(v);
-     const target = leak + Number(current.value)*18;
-     v += dt/Number(tau.value) * (target - v);
-     if (v >= Number(threshold.value)) { spikes++; v = reset; }
-   }
-   const W = canvas.width, H = canvas.height, left=55, right=20, top=20, bottom=38;
-   ctx.clearRect(0,0,W,H);
-   const ymin=-75, ymax=-35, xw=W-left-right, yh=H-top-bottom;
-   ctx.strokeStyle='rgba(166,190,215,.18)'; ctx.lineWidth=1;
-   ctx.fillStyle='#9eafc3'; ctx.font='14px system-ui';
-   for(let val=-70; val<=-40; val+=10){
-     let y=top+(ymax-val)/(ymax-ymin)*yh;ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(W-right,y);ctx.stroke();ctx.fillText(String(val),8,y+5);
-   }
-   for(let t=0;t<=duration;t+=50){
-     let x=left+t/duration*xw;ctx.beginPath();ctx.moveTo(x,top);ctx.lineTo(x,H-bottom);ctx.stroke();ctx.fillText(String(t),x-8,H-12);
-   }
-   let ty=top+(ymax-Number(threshold.value))/(ymax-ymin)*yh;
-   ctx.strokeStyle='#e9bd79';ctx.setLineDash([7,6]);ctx.beginPath();ctx.moveTo(left,ty);ctx.lineTo(W-right,ty);ctx.stroke();ctx.setLineDash([]);
-   ctx.strokeStyle='#8bc5e8';ctx.lineWidth=2.7;ctx.beginPath();
-   for(let i=0;i<values.length;i++){let x=left+i/(values.length-1)*xw;let val=Math.max(ymin,Math.min(ymax,values[i]));let y=top+(ymax-val)/(ymax-ymin)*yh;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();
-   ctx.fillStyle='#d1ddea';ctx.font='15px system-ui';ctx.fillText('Time (ms)',W/2-35,H-2);
-   readout.textContent = `Simulated duration: ${duration} ms · Spikes: ${spikes} · Dashed line: threshold`;
- }
- [current,tau,threshold].forEach(el=>el.addEventListener('input',simulate)); simulate();
-})();
-</script>
-</main><footer>Built as a personal collection of notes, ideas, and experiments. <a href="../about.html">About</a></footer>
-<script>
-const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav-inner');
-if (toggle && nav) toggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(open));
-});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Hushna Kumar Jena — physics, mathematics, learning, and neuroscience.">
+  <title>Hushna Kumar Jena | Home</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <style>
+    :root {
+      --bg: #090e16;
+      --panel: #111c2a;
+      --text: #edf3f8;
+      --muted: #aab7c6;
+      --accent: #8bc5e8;
+      --line: #263445;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.65 Arial, sans-serif;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { color: white; }
+
+    header {
+      background: #05080d;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      min-height: 68px;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: white;
+      font-size: 1.05rem;
+      font-weight: bold;
+      letter-spacing: .06em;
+    }
+
+    .links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .links a { color: #e0e8f0; }
+    .links a:hover { color: var(--accent); }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 34px 24px 70px;
+    }
+
+    .hero {
+      min-height: 310px;
+      padding: clamp(25px, 5vw, 58px);
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background:
+        linear-gradient(90deg, #091321 15%, rgba(9,19,33,.78)),
+        url("hero.svg") center / cover;
+    }
+
+    .hero-content { max-width: 690px; }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.15;
+      font-weight: 500;
+      margin: 12px 0;
+    }
+
+    h2 { font-size: 1.7rem; font-weight: 500; }
+    h3 { font-size: 1.12rem; margin: 0 0 8px; }
+
+    p { color: var(--muted); }
+
+    .intro { font-size: 1.08rem; max-width: 620px; }
+
+    .section { margin-top: 46px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      display: block;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--text);
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      color: var(--text);
+    }
+
+    .card img {
+      width: 100%;
+      height: 175px;
+      object-fit: cover;
+      background: #101c2a;
+    }
+
+    .card-content { padding: 20px; }
+    .card-content p { margin-bottom: 10px; }
+    .arrow { color: var(--accent); font-size: .92rem; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    @media (max-width: 650px) {
+      nav { align-items: flex-start; }
+      .links { gap: 12px 17px; }
+      .grid { grid-template-columns: 1fr; }
+      main { padding: 22px 16px 50px; }
+      .hero { min-height: 280px; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav>
+    <a class="brand" href="index.html">HUSHNA KUMAR JENA</a>
+
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="maths.html">Maths</a>
+      <a href="writing.html">Writing</a>
+      <a href="lab.html">Lab</a>
+      <a href="resources.html">Resources</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Physics · Mathematics · Neuroscience</div>
+      <h1>Ideas, models, and connections.</h1>
+      <p class="intro">
+        I'm interested in how mathematical structures and physical
+        processes connect to learning, emergence, and neuronal dynamics.
+        This site collects my notes, explorations, and experiments.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Research interests</h2>
+
+    <div class="grid">
+      <a class="card" href="physics.html">
+        <img src="physics.svg" alt="Wave patterns illustrating mathematical physics">
+        <div class="card-content">
+          <h3>Mathematical &amp; Theoretical Physics</h3>
+          <p>Quantum mechanics, operators, symmetry, and mathematical methods.</p>
+          <span class="arrow">Explore theme →</span>
+        </div>
+      </a>
+
+      <a class="card" href="statistical-physics.html">
+        <img src="statistical.svg" alt="Interacting particles and collective behaviour">
+        <div class="card-content">
+          <h3>Statistical Physics &amp; Emergence</h3>
+          <p>Probability, stochastic processes, non-equilibrium systems, and universality.</p>
+          <span class="arrow">Explore theme →</span>
+        </div>
+      </a>
+
+      <a class="card" href="machine-learning.html">
+        <img src="ml.svg" alt="Network representing machine learning">
+        <div class="card-content">
+          <h3>Machine Learning &amp; Learning Theory</h3>
+          <p>Probabilistic models, optimization, sequence learning, and reinforcement learning.</p>
+          <span class="arrow">Explore theme →</span>
+        </div>
+      </a>
+
+      <a class="card" href="neuroscience.html">
+        <img src="neuron.svg" alt="Illustration of a neuron">
+        <div class="card-content">
+          <h3>Neurophysiology &amp; Computation</h3>
+          <p>Membrane dynamics, neuron models, neural circuits, and biological computation.</p>
+          <span class="arrow">Explore theme →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Notes and experiments</h2>
+
+    <div class="grid">
+      <a class="card" href="maths.html">
+        <img src="maths.svg" alt="Mathematical curves and symbols">
+        <div class="card-content">
+          <h3>Maths</h3>
+          <p>Linear algebra, probability, analysis, and differential equations.</p>
+          <span class="arrow">Browse notes →</span>
+        </div>
+      </a>
+
+      <a class="card" href="writing.html">
+        <img src="hero.svg" alt="Abstract scientific visualisation">
+        <div class="card-content">
+          <h3>Writing</h3>
+          <p>Explanations, derivations, essays, and developing ideas.</p>
+          <span class="arrow">Read writing →</span>
+        </div>
+      </a>
+
+      <a class="card" href="lab.html">
+        <img src="lab.svg" alt="Scientific graph showing a changing signal">
+        <div class="card-content">
+          <h3>Lab</h3>
+          <p>Interactive models and computational experiments.</p>
+          <span class="arrow">Open Lab →</span>
+        </div>
+      </a>
+
+      <a class="card" href="resources.html">
+        <img src="physics.svg" alt="Scientific illustration">
+        <div class="card-content">
+          <h3>Resources</h3>
+          <p>Books, papers, lecture notes, and useful tools.</p>
+          <span class="arrow">Browse resources →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Hushna Kumar Jena · Personal academic website
+</footer>
+</body>
+</html>
